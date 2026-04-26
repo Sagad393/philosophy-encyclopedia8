@@ -1540,4 +1540,45 @@ const db = firebase.firestore();function addComment(id) {
         });
 
     });
-}loadComments(id);
+}loadComments(id);function openModal(category) {
+    const modal = document.getElementById('story-modal');
+    
+    // البحث في قاعدة البيانات التي أرسلتها أنت سابقاً
+    const data = database.find(item => item.category === category);
+
+    if (data) {
+        document.getElementById('modal-title').innerText = data.title;
+        document.getElementById('modal-story').innerHTML = `
+            <div class="story-box">
+                <p>${data.story}</p>
+            </div>
+            <div style="color: #c9a86a;">
+                <h4>💡 التحليل الفلسفي</h4>
+                <p>${data.analysis}</p>
+            </div>
+            <div style="font-style: italic; border-top: 1px solid #333; padding-top: 10px;">
+                <h4>👴 آراء الفلاسفة</h4>
+                <p>${data.philosophers}</p>
+            </div>
+        `;
+        
+        // تغيير الحالة إلى block لإظهارها
+        modal.style.display = "block";
+    } else {
+        console.error("القسم غير موجود في قاعدة البيانات:" + category);
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById("details-modal");
+    modal.style.display = "none";
+}
+
+
+// لإغلاق النافذة عند الضغط خارجها
+window.onclick = function(event) {
+    const modal = document.getElementById('story-modal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
