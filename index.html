@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موسوعة الفلسفة والأسطورة</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <header>
+        <h1>موسوعة الفلسفة والأسطورة</h1>
+        <p>استكشف أقسام الفلسفة عبر سحر القصص والاعتقادات القديمة</p>
+    </header>
+
+    <nav id="main-nav">
+        <button onclick="filterCategory('metaphysics')">الميتافيزيقا</button>
+        <button onclick="filterCategory('logic')">المنطق</button>
+        <button onclick="filterCategory('epistemology')"> الإبستمولوجيا (نظرية المعرفة)</button>
+        <button onclick="filterCategory('Axiology')"> الأكسيولوجيا  أو "فلسفة القيم"</button>
+        
+    </nav>
+
+    <main id="content-grid">
+        </main>
+
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="full-article"></div>
+        </div>
+    </div>
+
+    <script src="script.js">document.getElementById("output").innerText = story;</script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<div id="full-article"></div>
+</body>
+
+</html>
