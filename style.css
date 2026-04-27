@@ -1,4 +1,4 @@
-/* الإعدادات الأساسية */
+/* إعدادات عامة */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,13 +11,13 @@ html {
 
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #0f172a;
+    background-color: #050a15; /* لون كحلي عميق جداً */
     color: #e2e8f0;
-    line-height: 1.6;
+    line-height: 1.7;
     overflow-x: hidden;
 }
 
-/* الخلفية المتدرجة */
+/* خلفية الكانفاس */
 #bg {
     position: fixed;
     top: 0;
@@ -25,192 +25,269 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    background: radial-gradient(circle at top, #0d1b2a 0%, #050a15 100%);
 }
 
 /* الهيدر */
 header {
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), transparent);
+    padding: 70px 20px;
+    background: linear-gradient(to bottom, rgba(5, 10, 21, 0.95), transparent);
 }
 
 header h1 {
-    color: #00e5ff;
-    font-size: 3rem;
-    text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+    color: #d4af37; /* لون ذهبي فخم */
+    font-size: 3.2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 }
 
 .subtitle {
     color: #94a3b8;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-top: 10px;
 }
 
-/* القائمة العلويّة */
+/* شريط التنقل */
 #main-nav {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    padding: 15px;
-    background: rgba(30, 41, 59, 0.8);
-    backdrop-filter: blur(10px);
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(13, 27, 42, 0.85);
+    backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
 }
 
 .nav-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 229, 255, 0.4);
-    color: white;
-    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    color: #cbd5e1;
+    padding: 10px 25px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: 600;
-    transition: 0.3s;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
-    background: #00e5ff;
-    color: #0f172a;
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    background: #d4af37;
+    color: #050a15;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
-/* شبكة البطاقات */
+/* شبكة المحتوى */
 .wrapper {
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 50px auto;
     padding: 0 20px;
 }
 
 #content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-/* تصميم البطاقة */
+/* البطاقات */
 .card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
     overflow: hidden;
-    transition: 0.4s;
+    transition: all 0.4s ease;
     cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: #00e5ff;
-    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.4);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .card img {
     width: 100%;
-    height: 180px;
+    height: 220px;
     object-fit: cover;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.2);
 }
 
 .card-info {
-    padding: 20px;
+    padding: 25px;
     text-align: center;
 }
 
 .card-info h3 {
-    color: #00e5ff;
-    font-size: 1.2rem;
+    color: #e2e8f0;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
 }
 
-/* المودال - النافذة المنبثقة */
+.card-info p {
+    color: #d4af37;
+    font-size: 0.9rem;
+}
+
+/* النافذة المنبثقة (المودال) */
 .modal {
     display: none;
     position: fixed;
-    z-index: 9999; /* قيمة عالية جداً لضمان الظهور فوق الكل */
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(8px);
+    background: rgba(2, 4, 9, 0.95);
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background: #1e293b;
-    margin: 3% auto;
+    background: #0d1b2a;
+    margin: 2% auto;
     padding: 40px;
     width: 90%;
-    max-width: 800px;
-    border-radius: 20px;
+    max-width: 850px;
+    border-radius: 15px;
     position: relative;
-    max-height: 85vh;
+    max-height: 90vh;
     overflow-y: auto;
-    border: 1px solid rgba(0, 229, 255, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 
-/* زر الإغلاق المحسن */
 .close-btn {
     position: absolute;
-    top: 15px;
-    left: 20px; /* يسار لأن الموقع RTL */
-    font-size: 35px;
-    color: #ef4444;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: #94a3b8;
     cursor: pointer;
-    background: rgba(239, 68, 68, 0.1);
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
     transition: 0.3s;
-    z-index: 10001;
 }
 
 .close-btn:hover {
-    background: #ef4444;
-    color: white;
-    transform: rotate(90deg);
+    color: #ef4444;
+    transform: scale(1.1);
 }
 
-/* تنسيق القصة من الداخل */
+/* تنسيق المقال */
 .story-container {
     text-align: right;
-    line-height: 2;
 }
 
-.story-container h2 {
-    color: #00e5ff;
+.story-container h1 {
+    color: #d4af37;
     margin-bottom: 20px;
-    font-size: 1.8rem;
-    border-bottom: 2px solid rgba(0, 229, 255, 0.2);
-    padding-bottom: 10px;
 }
 
-.story-container p {
-    font-size: 1.1rem;
+.section-title {
+    color: #00e5ff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border-right: 4px solid #00e5ff;
+    padding-right: 15px;
+}
+
+.story-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 8px;
     color: #cbd5e1;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* قسم التعليقات */
+.comments-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comments-section h3 {
+    color: #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.comment-item {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 8px;
     margin-bottom: 15px;
 }
 
-.story-container blockquote {
-    background: rgba(212, 175, 55, 0.1);
-    border-right: 4px solid #d4af37;
-    padding: 15px;
-    margin: 20px 0;
-    color: #d4af37;
-    font-style: italic;
+.reply-item {
+    background: rgba(212, 175, 55, 0.05);
+    margin-right: 40px; /* إزاحة الردود لليسار */
+    border-right: 2px solid #d4af37;
 }
 
-/* تحسينات الموبايل */
-@media (max-width: 600px) {
-    header h1 { font-size: 2rem; }
-    .nav-btn { flex: 1 1 45%; font-size: 14px; }
-    .modal-content { width: 95%; padding: 25px; margin-top: 15%; }
+.comment-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
 }
 
-/* شريط التمرير */
+.comment-author { color: #00e5ff; font-weight: bold; }
+.comment-date { color: #64748b; }
+.reply-btn {
+    background: none; border: none; color: #d4af37; cursor: pointer; font-family: inherit; font-size: 0.9rem;
+}
+.reply-btn:hover { text-decoration: underline; }
+
+/* نموذج التعليق */
+.comment-form {
+    margin-top: 30px;
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.comment-form input, .comment-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.comment-form input:focus, .comment-form textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+.comment-form button {
+    background: #d4af37;
+    color: #050a15;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.comment-form button:hover { background: #eab308; }
+
+/* التمرير والموبايل */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+::-webkit-scrollbar-track { background: #050a15; }
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2.2rem; }
+    .modal-content { width: 95%; padding: 20px; }
+    .reply-item { margin-right: 20px; }
+}

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div id="bg"></div>
+    <canvas id="bg"></canvas>
 
     <header>
         <div class="header-container">
@@ -35,11 +35,25 @@
             <span class="close-btn" onclick="closeModal()" title="إغلاق">&times;</span>
             
             <div id="full-article" class="story-container"></div>
+            
+            <div class="comments-section">
+                <h3>التعليقات والمناقشات</h3>
+                <div id="comments-list"></div>
+                
+                <div class="comment-form">
+                    <h4 id="replying-to" style="display:none; color:#d4af37; margin-bottom:10px;">الرد على تعليق <span onclick="cancelReply()" style="cursor:pointer; color:#ef4444; font-size:12px;">(إلغاء)</span></h4>
+                    <input type="hidden" id="current-story-id">
+                    <input type="hidden" id="parent-comment-id" value="">
+                    
+                    <input type="text" id="comment-name" placeholder="اسمك الكريم..." required>
+                    <textarea id="comment-text" rows="3" placeholder="أضف أفكارك أو تحليلك هنا..." required></textarea>
+                    <button onclick="submitComment()">نشر التعليق</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    
 </body>
 </html>
